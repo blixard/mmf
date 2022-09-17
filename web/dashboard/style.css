@@ -24,8 +24,17 @@
 }
 
 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 5px;
     margin: 10px;
+}
+
+.container > * {
+    padding: 5px;
+    margin: 2px;
 }
   
 /* Clear floats */
