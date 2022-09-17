@@ -40,7 +40,7 @@
     if (snapshot.exists()) {
         console.log(snapshot.val());
         document.getElementById("userdata").elements[0].value = Object.keys(snapshot.val()).length +1 
-        document.getElementById("userdata").elements[3].disabled = false
+        document.getElementById("userdata").elements[14].disabled = false
     }else {
         console.log("No data available");
     }
