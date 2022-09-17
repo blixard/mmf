@@ -39,8 +39,9 @@
     get(child(usersRef, 'users')).then((snapshot) => {
     if (snapshot.exists()) {
         console.log(snapshot.val());
+        var size = document.getElementById("userdata").elements.length
         document.getElementById("userdata").elements[0].value = Object.keys(snapshot.val()).length +1 
-        document.getElementById("userdata").elements[14].disabled = false
+        document.getElementById("userdata").elements[size-1].disabled = false
     }else {
         console.log("No data available");
     }
@@ -49,14 +50,46 @@
     });
 
     document.getElementById("userdata").onsubmit = ()=>{
-        var srno = document.getElementById("userdata").elements[0].value;
-        var firstName = document.getElementById("userdata").elements[1].value;
-        var lastName = document.getElementById("userdata").elements[2].value;
-        
+        var id = document.getElementById("userdata").elements[0].value;
+        var srno = document.getElementById("userdata").elements[1].value;
+        var invoiceNo = document.getElementById("userdata").elements[2].value;
+        var doj = document.getElementById("userdata").elements[3].value;
+        var firstName = document.getElementById("userdata").elements[4].value;
+        var lastName = document.getElementById("userdata").elements[5].value;        
+        var phoneNumber = document.getElementById("userdata").elements[6].value;
+        var duration = document.getElementById("userdata").elements[7].value;        
+        var paid = document.getElementById("userdata").elements[8].value;
+        var email = document.getElementById("userdata").elements[9].value;
+        var address = document.getElementById("userdata").elements[10].value;        
+        var dob = document.getElementById("userdata").elements[11].value;
+        var weight = document.getElementById("userdata").elements[12].value;
+        var height = document.getElementById("userdata").elements[13].value;
+        var bloodGroup = document.getElementById("userdata").elements[14].value;
+        var gender = document.getElementById("userdata").elements[15].value;
+
+        var dt = new Date(doj)
+        console.log(dt)
+        var sed = new Date (dt.setMonth(dt.getMonth() + parseInt(duration))).toDateString();
+        console.log(sed);
+        alert(sed)
         const dbRef = getDatabase();
-        set(ref(dbRef,'users/' + srno+firstName+lastName ), {
+        set(ref(dbRef,'users/' + id+firstName + lastName + invoiceNo), {
+            id:id,
+            srno:srno,
+            invoiceno:invoiceNo,
+            doj:doj,
             firstname: firstName,
-            lastname: lastName 
+            lastname: lastName,
+            phonenumber:phoneNumber,
+            duration:duration,
+            paid:paid,
+            email:email,
+            address: address,
+            dob:dob,
+            weight:weight,
+            height:height,
+            bloodGroup:bloodGroup,
+            gender:gender
         });
     }
     
