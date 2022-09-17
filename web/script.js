@@ -83,6 +83,7 @@
             phonenumber:phoneNumber,
             duration:duration,
             paid:paid,
+            sed:sed,
             email:email,
             address: address,
             dob:dob,

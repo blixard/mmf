@@ -38,10 +38,23 @@
     const usersRef = ref(getDatabase());
     get(child(usersRef, 'users')).then((snapshot) => {
     if (snapshot.exists()) {
-        console.log(snapshot.val());
-        var size = document.getElementById("userdata").elements.length
-        document.getElementById("userdata").elements[0].value = Object.keys(snapshot.val()).length +1 
-        document.getElementById("userdata").elements[size-1].disabled = false
+        console.log(snapshot.val()['4rupelPadhy']);
+        for(var key in snapshot.val()){
+            const card = document.createElement("div");
+            card.className = "card"
+            card.innerHTML = `
+            <img src="./static/imgs/defaultimage.png" alt="Image" >
+            <div class="container">
+              <h2>${snapshot.val()[key].firstname}</h2>
+              <p class="title">CEO &amp; Founder</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+            `
+            document.getElementById("memberslist").appendChild(card)
+        }
+
     }else {
         console.log("No data available");
     }
