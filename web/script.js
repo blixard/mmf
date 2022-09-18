@@ -43,6 +43,8 @@
         document.getElementById("userdata").elements[size-1].disabled = false
     }else {
         console.log("No data available");
+        var size = document.getElementById("userdata").elements.length
+        document.getElementById("userdata").elements[size-1].disabled = false
     }
     }).catch((error) => {
         console.error(error);

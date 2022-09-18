@@ -45,6 +45,9 @@
             const card = document.createElement("div");
             card.className = "card"
             card.id = key +"card"
+            if(user["due"] >0){
+              card.style.backgroundColor = "rgb(255, 204, 204)"
+            }
             const countDownDate = new Date(user['sed']).getTime();
             const counter = document.createElement("div")
             counter.className = "counter"
@@ -67,11 +70,14 @@
                 counter.innerHTML = days + "d " + hours + "h "
                 + minutes + "m " + seconds + "s ";
               
-                if(days < 10 ){
-                    card.style.backgroundColor = "rgb(255, 204, 204)"
+                if(days > 10 ){
+                    counter.style.backgroundColor = "rgb(204, 255, 204)"
+                }
+                else if(days>1){
+                    counter.style.backgroundColor = "rgb(255, 255, 204)"
                 }
                 else{
-                    card.style.backgroundColor = "rgb(204, 255, 204)"
+                    counter.style.backgroundColor = "rgb(255, 204, 204)"
                 }
                 // If the count down is finished, write some text
                 if (distance < 0) {
@@ -92,8 +98,10 @@
             <p class="invoiceNo">Invoice Number : ${user['invoiceno']} </p>
             <p class="doj">Joining Date : ${user['doj']} </p>
             <p class="sed">End date : ${user['sed']} </p>
-            <p class="piad">Amount Paid: ${user['paid']}</p>
-            <p class="due">Amount Due: ${3000-user['paid']}</p>
+            <p class="tamount">Total Amount : ${user['total']} rs </p>
+            <p class="duration">Duration : ${user['duration']} month </p>
+            <p class="piad">Amount Paid: ${user['paid']} rs</p>
+            <p class="due">Amount Due: ${user['due']} rs</p>
             <p>Address: ${user['address']} </p>
             <p>Email: ${user['email']}</p>
             <a href="tel:${user['phonenumber']}">Phone Nmber: ${user['phonenumber']}</a>
