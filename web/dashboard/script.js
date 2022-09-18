@@ -47,6 +47,7 @@
             card.id = "key"
             var countDownDate = new Date(user['sed']).getTime();
             var counter = document.createElement("div")
+            counter.className = "counter"
             var x = setInterval(function() {
 
                 // Get today's date and time
@@ -80,19 +81,32 @@
               }, 1000);
             card.innerHTML = `
             <img src="./static/imgs/defaultimage.png" alt="image" >
-            <div class="container">
-              <h2>${user['firstname'] +" "+ user['lastname'] }</h2>
-              <p class="title">MMF Member</p>
-              <p class="invoiceNo">Invoice Number : ${user['invoiceno']} </p>
-              <p class="doj">Joining Date : ${user['doj']} </p>
-              <p class="sed">End date : ${user['sed']} </p>
-              <p class="piad">Amount Paid: ${user['paid']}</p>
-              <p class="due">Amount Due: ${3000-user['paid']}</p>
-              <p>Address: ${user['address']} </p>
-              <p>Email: ${user['email']}</p>
-              <a href="tel:+${user['phonenumber']}">Phone Nmber: ${user['phonenumber']}</a>
-            </div>
+            <h2>${user['firstname'] +" "+ user['lastname'] }</h2>
             `
+            var container = document.createElement("div")
+            container.className = "container"
+            container.innerHTML =`
+            <p class="title">MMF Member</p>
+            <p class="invoiceNo">Invoice Number : ${user['invoiceno']} </p>
+            <p class="doj">Joining Date : ${user['doj']} </p>
+            <p class="sed">End date : ${user['sed']} </p>
+            <p class="piad">Amount Paid: ${user['paid']}</p>
+            <p class="due">Amount Due: ${3000-user['paid']}</p>
+            <p>Address: ${user['address']} </p>
+            <p>Email: ${user['email']}</p>
+            <a href="tel:${user['phonenumber']}">Phone Nmber: ${user['phonenumber']}</a>
+            `
+            container.style.display= "none"
+            card.onclick = ()=>{
+              if(container.style.display == "none"){
+                container.style.display = "flex"
+              }
+              else{
+                container.style.display= "none"
+              }
+              
+            }
+            card.appendChild(container)
             card.appendChild(counter)
             document.getElementById("memberslist").appendChild(card)
         }

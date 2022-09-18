@@ -23,6 +23,16 @@
     width: 50px;
 }
 
+.counter{
+    font-size: larger;
+    border: 0.5px solid rgb(236, 236, 236);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-weight: bolder;
+    padding: 5px;
+    margin: 5px;
+}
+
 .container {
     display: flex;
     justify-content: center;
