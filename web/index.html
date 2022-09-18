@@ -17,40 +17,83 @@
         <label for="fid">Id:</label><br>
         <input disabled type="number" id="fid" value=0><br>
         <label for="srno">SR NO:</label><br>
-        <input type="number" id="srno" value=0><br>
+        <input type="number" id="srno" ><br>
         <label for="invoiceno">Invoice No:</label><br>
-        <input type="number" id="invoiceno" value=0><br>
+        <input required type="number" id="invoiceno"><br>
         <label for="doj">Date Of Joining:</label><br>
-        <input type="date" id="doj" value=0><br>
+        <input required type="date" id="doj" ><br>
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" value=""><br>
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" value=""><br>
         <label for="pnumber">Phone Number:</label><br>
         <input type="number" id="pnumber" value=""><br>
-        <label for="duration">Duration:</label><br>
-        <input type="number" id="duration" value="3"><br>
-        <label for="paid">Amount Paid:</label><br>
-        <input type="number" id="paid" value="2000"><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" value=""><br>
-        <label for="address">Address:</label><br>
-        <input type="text" id="address" value=""><br>
-        <label for="dob">Date of Birth:</label><br>
-        <input type="date" id="dob" value=""><br>
-        <label for="weigth">weight:</label><br>
-        <input type="number" id="weight" value=""><br>
-        <label for="height">Height:</label><br>
-        <input type="number" id="height" value=""><br>
-        <label for="bg">Blood Group:</label><br>
-        <input type="text" id="bg" value=""><br>
-        <label for="gender">Gender:</label><br>
-        <select id="gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-         </select><br>
+        
+        <h2 class = "paymenthead inhead" id="paymentheader">Payment Information <span id="parrow"> &#8615; </span>  </h2>
+        <div class="payment" id ="paymentbox">
+            <label for="package">Package:</label><br>
+            <select id="package">
+                <option value="p1">3 Months RS.2500 </option>
+                <option value="p2">1 Month 800 monthly + 700 admission</option>
+             </select><br>
 
-        <input disabled type="submit" value="Submit">
+            <label for="discount">Discount:</label><br>
+            <input required type="number" id="discount" ><br>
+
+            <label for="admission">Admission Cost:</label><br>
+            <input required  type="number" id="admission"><br>            
+            
+            <label for="recurring">Recurring Cost:</label><br>
+            <input required  type="number" id="recurring"><br>
+
+            <label for="tamount">Total Amount:</label><br>
+            <input required  type="number" id="tamount" ><br>
+    
+            <label for="duration">Duration:</label><br>
+            <input required  type="number" id="duration"><br>
+
+            <label for="paid">Amount Paid:</label><br>
+            <input required  type="number" id="paid" ><br>
+
+            <label for="due">Amount Due:</label><br>
+            <input required  type="number" id="due" ><br>
+        </div>
+
+        <h2 class = "otherhead inhead" id="otherheader">Other Details <span id="oarrow"> &#8615; </span>  </h2>
+
+        <div class="otherdetails" id="othersbox">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" value=""><br>
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" value=""><br>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" value=""><br>
+            <label for="weigth">weight:</label><br>
+            <input type="number" id="weight" value=""><br>
+            <label for="height">Height:</label><br>
+            <input type="number" id="height" value=""><br>
+
+            <label for="bg">Blood Group:</label><br>
+            <select id="bg">
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+             </select><br>
+
+            <label for="gender">Gender:</label><br>
+            <select id="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+             </select><br>
+        </div>
+
+
+        <input disabled class="btn" id="submitbtn" type="submit" value="Submit">
     </form>
 </body>
 <script type="module" src="./script.js"> </script>

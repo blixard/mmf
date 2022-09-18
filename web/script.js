@@ -19,7 +19,6 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
 
 
 
@@ -49,6 +48,94 @@
         console.error(error);
     });
 
+    window.onload = ()=> {
+        document.getElementById("paymentbox").style.display = "none";
+        document.getElementById("othersbox").style.display = "none";
+        var pack = document.getElementById("package");
+        var discount = document.getElementById("discount")
+        var admission = document.getElementById("admission")
+        var recurring = document.getElementById("recurring")
+        var total = document.getElementById("tamount")
+        var duration = document.getElementById("duration")
+        discount.value = 0
+        if(pack.value== "p1"){
+            admission.value = 0
+            recurring.value = 2500
+            total.value = 2500
+            duration.value = 3
+        }
+        else if(pack.value == "p2"){
+            admission.value = 700
+            recurring.value = 800
+            total.value = 1500
+            duration.value = 1
+        }
+    };
+
+    document.getElementById("paymentheader").onclick= ()=>{
+        var paymentBox = document.getElementById("paymentbox")
+        var arrow = document.getElementById("parrow")
+        if(paymentBox.style.display=="none"){
+            paymentBox.style.display="flex"
+            arrow.innerHTML = "  &#8613;"
+        }
+        else{
+            paymentBox.style.display="none"
+            arrow.innerHTML = "  &#8615;"
+            
+        }
+    }
+
+    document.getElementById("otherheader").onclick= ()=>{
+        var othersBox = document.getElementById("othersbox")
+        var arrow = document.getElementById("oarrow")
+        if(othersBox.style.display=="none"){
+            othersBox.style.display="flex"
+            arrow.innerHTML = "  &#8613;"
+        }
+        else{
+            othersBox.style.display="none"
+            arrow.innerHTML = "  &#8615;"
+        }
+    }
+
+    document.getElementById("package").onchange = ()=>{
+        var pack = document.getElementById("package");
+        var discount = document.getElementById("discount")
+        var admission = document.getElementById("admission")
+        var recurring = document.getElementById("recurring")
+        var total = document.getElementById("tamount")
+        var duration = document.getElementById("duration")
+        discount.value = 0
+        if(pack.value== "p1"){
+            admission.value = 0
+            recurring.value = 2500
+            total.value = 2500
+            duration.value = 3
+        }
+        else if(pack.value == "p2"){
+            admission.value = 700
+            recurring.value = 800
+            total.value = 1500
+            duration.value = 1
+        }
+    }
+
+    document.getElementById("discount").onchange = ()=>{
+        var discount = document.getElementById("discount")
+        var admission = document.getElementById("admission")
+        var recurring = document.getElementById("recurring")
+        var total = document.getElementById("tamount")
+        total.value = (parseInt( recurring.value)  + parseInt( admission.value) ) - parseInt( discount.value) 
+    }
+
+    document.getElementById("paid").onchange = ()=>{
+        var due = document.getElementById("due")
+        var paid = document.getElementById("paid")
+        var total = document.getElementById("tamount")
+        due.value = parseInt( total.value)  - parseInt( paid.value) 
+    }
+
     document.getElementById("userdata").onsubmit = ()=>{
         var id = document.getElementById("userdata").elements[0].value;
         var srno = document.getElementById("userdata").elements[1].value;
@@ -57,15 +144,23 @@
         var firstName = document.getElementById("userdata").elements[4].value;
         var lastName = document.getElementById("userdata").elements[5].value;        
         var phoneNumber = document.getElementById("userdata").elements[6].value;
-        var duration = document.getElementById("userdata").elements[7].value;        
-        var paid = document.getElementById("userdata").elements[8].value;
-        var email = document.getElementById("userdata").elements[9].value;
-        var address = document.getElementById("userdata").elements[10].value;        
-        var dob = document.getElementById("userdata").elements[11].value;
-        var weight = document.getElementById("userdata").elements[12].value;
-        var height = document.getElementById("userdata").elements[13].value;
-        var bloodGroup = document.getElementById("userdata").elements[14].value;
-        var gender = document.getElementById("userdata").elements[15].value;
+
+        var pack = document.getElementById("userdata").elements[7].value;
+        var discount = document.getElementById("userdata").elements[8].value;
+        var admission = document.getElementById("userdata").elements[9].value;
+        var reccuring = document.getElementById("userdata").elements[10].value;
+        var total = document.getElementById("userdata").elements[11].value;
+        var duration = document.getElementById("userdata").elements[12].value;        
+        var paid = document.getElementById("userdata").elements[13].value;
+        var due = document.getElementById("userdata").elements[14].value;
+        
+        var email = document.getElementById("userdata").elements[15].value;
+        var address = document.getElementById("userdata").elements[16].value;        
+        var dob = document.getElementById("userdata").elements[17].value;
+        var weight = document.getElementById("userdata").elements[18].value;
+        var height = document.getElementById("userdata").elements[19].value;
+        var bloodGroup = document.getElementById("userdata").elements[20].value;
+        var gender = document.getElementById("userdata").elements[21].value;
 
         var dt = new Date(doj)
         console.log(dt)
@@ -81,16 +176,22 @@
             firstname: firstName,
             lastname: lastName,
             phonenumber:phoneNumber,
-            duration:duration,
-            paid:paid,
-            sed:sed,
             email:email,
             address: address,
             dob:dob,
             weight:weight,
             height:height,
             bloodGroup:bloodGroup,
-            gender:gender
+            gender:gender,
+            pack:pack,
+            discount:discount,
+            admission:admission,
+            recurring:reccuring,
+            total:total,
+            duration:duration,
+            paid:paid,
+            due:due,
+            sed:sed
         });
     }
     

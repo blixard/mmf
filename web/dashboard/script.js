@@ -44,9 +44,9 @@
             console.log(user)
             const card = document.createElement("div");
             card.className = "card"
-            card.id = "key"
-            var countDownDate = new Date(user['sed']).getTime();
-            var counter = document.createElement("div")
+            card.id = key +"card"
+            const countDownDate = new Date(user['sed']).getTime();
+            const counter = document.createElement("div")
             counter.className = "counter"
             var x = setInterval(function() {
 
@@ -79,12 +79,14 @@
                   document.getElementById("demo").innerHTML = "EXPIRED";
                 }
               }, 1000);
+
             card.innerHTML = `
             <img src="./static/imgs/defaultimage.png" alt="image" >
             <h2>${user['firstname'] +" "+ user['lastname'] }</h2>
             `
-            var container = document.createElement("div")
+            const container = document.createElement("div")
             container.className = "container"
+            container.id = key + "container"
             container.innerHTML =`
             <p class="title">MMF Member</p>
             <p class="invoiceNo">Invoice Number : ${user['invoiceno']} </p>
@@ -96,6 +98,9 @@
             <p>Email: ${user['email']}</p>
             <a href="tel:${user['phonenumber']}">Phone Nmber: ${user['phonenumber']}</a>
             `
+            card.appendChild(container)
+            card.appendChild(counter)
+
             container.style.display= "none"
             card.onclick = ()=>{
               if(container.style.display == "none"){
@@ -106,8 +111,6 @@
               }
               
             }
-            card.appendChild(container)
-            card.appendChild(counter)
             document.getElementById("memberslist").appendChild(card)
         }
 

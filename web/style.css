@@ -28,6 +28,44 @@ header{
     margin: 5px;
 }
 
+.inhead{
+    width: 100%;
+    border: 2px solid black; /* Green */
+    background-color: rgb(154, 154, 154);
+    color: rgb(57, 57, 57);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.payment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+}
+
+.otherdetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+}
+
+.btn{
+    font-size: large;
+    font-weight: bold;
+    border: 2px solid #4CAF50; /* Green */
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
 input{
     line-height: 20px;
     border-radius: 2px;
